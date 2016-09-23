@@ -10,6 +10,16 @@ public class Mensagem {
 	private ArrayList<Cliente> clientes;
 	private Empresa remetente;
 
+	public Mensagem(){};
+	
+	public Mensagem(int id, String titulo, String conteudo, ArrayList<Cliente> clientes) {
+		super();
+		this.id        = id;
+		this.titulo	   = titulo;
+		this.conteudo  = conteudo;
+		this.clientes  = clientes;
+	}
+	
 	public Mensagem(int id, String titulo, String conteudo, ArrayList<Cliente> clientes,
 			Empresa remetente) {
 		super();

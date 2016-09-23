@@ -7,6 +7,10 @@ public class Cliente {
 	private boolean confirmado;
 	private String nome;
 	
+	public Cliente(String email){
+		this.email = email;
+	}
+	
 	public Cliente(int id, String email, boolean confirmado, String nome) {
 		super();
 		this.email = email;
