@@ -47,6 +47,7 @@ public class ControllerMensagem {
 		    ObjectMapper mapper = new ObjectMapper();
 		    try {
 				pj = mapper.readValue(json, Mensagem.class);
+				listaMensagens.add(pj);
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -65,7 +66,7 @@ public class ControllerMensagem {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		    listaMensagens.add(pj);
+		   
 		    return null;
 		}
 }
