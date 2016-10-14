@@ -1,6 +1,7 @@
 package com.mensageria.model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Mensagem {
 
@@ -14,7 +15,8 @@ public class Mensagem {
 	
 	public Mensagem(int id, String titulo, String conteudo, ArrayList<Cliente> clientes) {
 		super();
-		this.id        = id;
+		Random random = new Random();
+		this.id        = random.nextInt();
 		this.titulo	   = titulo;
 		this.conteudo  = conteudo;
 		this.clientes  = clientes;
@@ -23,7 +25,8 @@ public class Mensagem {
 	public Mensagem(int id, String titulo, String conteudo, ArrayList<Cliente> clientes,
 			Empresa remetente) {
 		super();
-		this.id        = id;
+		Random random = new Random();
+		this.id        = random.nextInt();
 		this.titulo	   = titulo;
 		this.conteudo  = conteudo;
 		this.clientes  = clientes;
