@@ -66,6 +66,6 @@ public class ControllerMensagem {
 				e.printStackTrace();
 			}
 		    listaMensagens.add(pj);
-		    return null;
+		    return listaMensagens;
 		}
 }
