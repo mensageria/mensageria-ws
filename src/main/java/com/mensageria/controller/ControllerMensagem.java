@@ -15,8 +15,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mensageria.model.Cliente;
-import com.mensageria.model.Empresa;
+import com.mensageria.model.Usuario;
+import com.mensageria.model.Instituicao;
 import com.mensageria.model.Mensagem;
 
 @RestController

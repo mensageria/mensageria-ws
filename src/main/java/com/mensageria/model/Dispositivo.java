@@ -1,45 +1,76 @@
 package com.mensageria.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "dispositivos")
 public class Dispositivo {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String mac;
 	private String nome;
-	private Cliente proprietario;
+	private String tokenFirebase;
 	
-	public Dispositivo(int id, String mac, String nome, Cliente proprietario) {
-		super();
-		this.proprietario = proprietario;
-		this.id = id;
+	@ManyToOne
+	private Usuario proprietario;
+	
+	public Dispositivo() {
+	}
+
+	public Dispositivo(String mac, String nome, String tokenFirebase, Usuario proprietario) {
 		this.mac = mac;
 		this.nome = nome;
+		this.tokenFirebase = tokenFirebase;
+		this.proprietario = proprietario;
 	}
-	
-	public Cliente getProprietario() {
+
+	public String getMac() {
+		return mac;
+	}
+
+	public void setMac(String mac) {
+		this.mac = mac;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getTokenFirebase() {
+		return tokenFirebase;
+	}
+
+	public void setTokenFirebase(String tokenFirebase) {
+		this.tokenFirebase = tokenFirebase;
+	}
+
+	public Usuario getProprietario() {
 		return proprietario;
 	}
 
-	public void setProprietario(Cliente proprietario) {
+	public void setProprietario(Usuario proprietario) {
 		this.proprietario = proprietario;
 	}
 
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getMac() {
-		return mac;
-	}
-	public void setMac(String mac) {
-		this.mac = mac;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	@Override
+	public String toString() {
+		return "Dispositivo [id=" + id + ", mac=" + mac + ", nome=" + nome + ", tokenFirebase=" + tokenFirebase
+				+ ", proprietario=" + proprietario + "]";
 	}
 	
 	

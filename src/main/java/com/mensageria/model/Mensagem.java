@@ -1,52 +1,43 @@
 package com.mensageria.model;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "mensagens")
 public class Mensagem {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String titulo;
 	private String conteudo;
-	private ArrayList<Cliente> clientes;
-	private Empresa remetente;
 
-	public Mensagem(){};
-	
-	public Mensagem(int id, String titulo, String conteudo, ArrayList<Cliente> clientes) {
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar dataEnvio;
+
+	@ManyToOne
+	private Usuario autor;
+
+	@ManyToOne
+	private Conversa conversa;
+
+	public Mensagem() {
+	}
+
+	public Mensagem(String conteudo, Calendar dataEnvio, Usuario autor, Conversa conversa) {
 		super();
-		Random random = new Random();
-		this.id        = random.nextInt();
-		this.titulo	   = titulo;
-		this.conteudo  = conteudo;
-		this.clientes  = clientes;
-	}
-	
-	public Mensagem(int id, String titulo, String conteudo, ArrayList<Cliente> clientes,
-			Empresa remetente) {
-		super();
-		Random random = new Random();
-		this.id        = random.nextInt();
-		this.titulo	   = titulo;
-		this.conteudo  = conteudo;
-		this.clientes  = clientes;
-		this.remetente = remetente;
-	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+		this.conteudo = conteudo;
+		this.dataEnvio = dataEnvio;
+		this.autor = autor;
+		this.conversa = conversa;
 	}
 
 	public String getConteudo() {
@@ -57,20 +48,38 @@ public class Mensagem {
 		this.conteudo = conteudo;
 	}
 
-	public ArrayList<Cliente> getClientes() {
-		return clientes;
+	public Calendar getDataEnvio() {
+		return dataEnvio;
 	}
 
-	public void setClientes(ArrayList<Cliente> clientes) {
-		this.clientes = clientes;
+	public void setDataEnvio(Calendar dataEnvio) {
+		this.dataEnvio = dataEnvio;
 	}
 
-	public Empresa getRemetente() {
-		return remetente;
+	public Usuario getAutor() {
+		return autor;
 	}
 
-	public void setRemetente(Empresa remetente) {
-		this.remetente = remetente;
+	public void setAutor(Usuario autor) {
+		this.autor = autor;
+	}
+
+	public Conversa getConversa() {
+		return conversa;
+	}
+
+	public void setConversa(Conversa conversa) {
+		this.conversa = conversa;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Mensagem [id=" + id + ", conteudo=" + conteudo + ", dataEnvio=" + dataEnvio + ", autor=" + autor
+				+ ", conversa=" + conversa + "]";
 	}
 
 }

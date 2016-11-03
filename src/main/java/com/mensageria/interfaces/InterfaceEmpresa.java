@@ -2,20 +2,20 @@ package com.mensageria.interfaces;
 
 import java.util.ArrayList;
 
-import com.mensageria.model.Cliente;
+import com.mensageria.model.Conversa;
 import com.mensageria.model.Mensagem;
-import com.mensageria.model.Token;
+import com.mensageria.model.Usuario;
 
 public interface InterfaceEmpresa {
 
-	Token EnviarMensagem(ArrayList<Cliente> listaIDs, Mensagem mensagem);
+	Conversa EnviarMensagem(ArrayList<Usuario> listaIDs, Mensagem mensagem);
 
-	ArrayList<Cliente> VerificarLidos(Token token);
+	ArrayList<Usuario> VerificarLidos(Conversa conversa);
 
-	ArrayList<Cliente> VerificarNaoLidos(Token token);
+	ArrayList<Usuario> VerificarNaoLidos(Conversa conversa);
 
-	ArrayList<Cliente> VerificarNaoRecebidos(Token token);
+	ArrayList<Usuario> VerificarNaoRecebidos(Conversa conversa);
 	
-	ArrayList<Cliente> getClientes();
+	ArrayList<Usuario> getClientes();
 
 }

@@ -3,40 +3,41 @@ package com.mensageria.controller;
 import java.util.ArrayList;
 
 import com.mensageria.interfaces.InterfaceEmpresa;
-import com.mensageria.model.Cliente;
+import com.mensageria.model.Conversa;
 import com.mensageria.model.Mensagem;
-import com.mensageria.model.Token;
+import com.mensageria.model.Usuario;
 
 public class ControllerEmpresa implements InterfaceEmpresa{
 
 	@Override
-	public Token EnviarMensagem(ArrayList<Cliente> listaIDs, Mensagem mensagem) {
+	public Conversa EnviarMensagem(ArrayList<Usuario> listaIDs, Mensagem mensagem) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Cliente> VerificarLidos(Token token) {
+	public ArrayList<Usuario> VerificarLidos(Conversa conversa) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Cliente> VerificarNaoLidos(Token token) {
+	public ArrayList<Usuario> VerificarNaoLidos(Conversa conversa) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Cliente> VerificarNaoRecebidos(Token token) {
+	public ArrayList<Usuario> VerificarNaoRecebidos(Conversa conversa) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Cliente> getClientes() {
+	public ArrayList<Usuario> getClientes() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
