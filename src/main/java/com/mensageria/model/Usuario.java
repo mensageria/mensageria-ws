@@ -1,7 +1,7 @@
 package com.mensageria.model;
 
 import java.util.Calendar;
-import java.util.TreeSet;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String email;
 	private boolean emailConfirmado;
 	private String nome;
@@ -32,27 +32,23 @@ public class Usuario {
 	private Calendar ultimoAcesso;
 
 	@OneToMany
-	private TreeSet<Dispositivo> listaDispositivos;
+	private List<Dispositivo> listaDispositivos;
 
 	@OneToMany
-	private TreeSet<Mensagem> listaMensagens;
+	private List<Mensagem> listaMensagens;
 
 	@OneToMany
-	private TreeSet<Confirmacao> listaConfirmacoes;
+	private List<Confirmacao> listaConfirmacoes;
 
 	public Usuario() {
 	}
 
-	public Usuario(String email, boolean emailConfirmado, String nome, Calendar ultimoAcesso,
-			TreeSet<Dispositivo> listaDispositivos, TreeSet<Mensagem> listaMensagens,
-			TreeSet<Confirmacao> listaConfirmacoes) {
+	public Usuario(String email, boolean emailConfirmado, String nome, Calendar ultimoAcesso) {
+		super();
 		this.email = email;
 		this.emailConfirmado = emailConfirmado;
 		this.nome = nome;
 		this.ultimoAcesso = ultimoAcesso;
-		this.listaDispositivos = listaDispositivos;
-		this.listaMensagens = listaMensagens;
-		this.listaConfirmacoes = listaConfirmacoes;
 	}
 
 	public String getEmail() {
@@ -87,31 +83,31 @@ public class Usuario {
 		this.ultimoAcesso = ultimoAcesso;
 	}
 
-	public TreeSet<Dispositivo> getListaDispositivos() {
+	public List<Dispositivo> getListaDispositivos() {
 		return listaDispositivos;
 	}
 
-	public void setListaDispositivos(TreeSet<Dispositivo> listaDispositivos) {
+	public void setListaDispositivos(List<Dispositivo> listaDispositivos) {
 		this.listaDispositivos = listaDispositivos;
 	}
 
-	public TreeSet<Mensagem> getListaMensagens() {
+	public List<Mensagem> getListaMensagens() {
 		return listaMensagens;
 	}
 
-	public void setListaMensagens(TreeSet<Mensagem> listaMensagens) {
+	public void setListaMensagens(List<Mensagem> listaMensagens) {
 		this.listaMensagens = listaMensagens;
 	}
 
-	public TreeSet<Confirmacao> getListaConfirmacoes() {
+	public List<Confirmacao> getListaConfirmacoes() {
 		return listaConfirmacoes;
 	}
 
-	public void setListaConfirmacoes(TreeSet<Confirmacao> listaConfirmacoes) {
+	public void setListaConfirmacoes(List<Confirmacao> listaConfirmacoes) {
 		this.listaConfirmacoes = listaConfirmacoes;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -122,5 +118,4 @@ public class Usuario {
 				+ listaMensagens + ", listaConfirmacoes=" + listaConfirmacoes + "]";
 	}
 
-	
 }

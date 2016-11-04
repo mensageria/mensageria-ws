@@ -17,7 +17,7 @@ public class Mensagem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String conteudo;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -72,7 +72,7 @@ public class Mensagem {
 		this.conversa = conversa;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 

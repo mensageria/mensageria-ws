@@ -1,7 +1,6 @@
 package com.mensageria.model;
 
 import java.util.Calendar;
-import java.util.TreeSet;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -15,10 +14,8 @@ public class Instituicao extends Usuario {
 	public Instituicao() {
 	}
 
-	public Instituicao(String email, boolean emailConfirmado, String nome, Calendar ultimoAcesso,
-			TreeSet<Dispositivo> listaDispositivos, TreeSet<Mensagem> listaMensagens,
-			TreeSet<Confirmacao> listaConfirmacoes, String cnpj) {
-		super(email, emailConfirmado, nome, ultimoAcesso, listaDispositivos, listaMensagens, listaConfirmacoes);
+	public Instituicao(String email, boolean emailConfirmado, String nome, Calendar ultimoAcesso, String cnpj) {
+		super(email, emailConfirmado, nome, ultimoAcesso);
 		this.cnpj = cnpj;
 	}
 
@@ -34,8 +31,5 @@ public class Instituicao extends Usuario {
 	public String toString() {
 		return super.toString() + "Instituicao [cnpj=" + cnpj + "]";
 	}
-
-	
-	
 
 }

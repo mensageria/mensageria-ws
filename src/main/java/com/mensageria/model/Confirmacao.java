@@ -13,7 +13,7 @@ public class Confirmacao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private boolean vizualizado;
 	private boolean recebido;
 
@@ -64,7 +64,7 @@ public class Confirmacao {
 		this.conversa = conversa;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 

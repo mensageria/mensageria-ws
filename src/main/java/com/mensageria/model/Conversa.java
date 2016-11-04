@@ -1,8 +1,7 @@
 package com.mensageria.model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.TreeSet;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,38 +13,38 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "mensagens")
+@Table(name = "conversas")
 public class Conversa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
 	private boolean interativa;
-	private ArrayList<Usuario> participantes;
 	private String nome;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCriação;
 
 	@OneToMany
-	private TreeSet<Mensagem> listaMensagens;
+	private List<Mensagem> listaMensagens;
 
 	@OneToMany
-	private TreeSet<Confirmacao> listaConfirmacoes;
+	private List<Confirmacao> listaConfirmacoes;
 
 	public Conversa() {
 	}
 
-	public Conversa(boolean interativa, ArrayList<Usuario> participantes, String nome, Calendar dataCriação,
-			TreeSet<Mensagem> listaMensagens, TreeSet<Confirmacao> listaConfirmacoes) {
+
+
+	public Conversa(boolean interativa, String nome, Calendar dataCriação) {
+		super();
 		this.interativa = interativa;
-		this.participantes = participantes;
 		this.nome = nome;
 		this.dataCriação = dataCriação;
-		this.listaMensagens = listaMensagens;
-		this.listaConfirmacoes = listaConfirmacoes;
 	}
+
+
 
 	public boolean isInterativa() {
 		return interativa;
@@ -53,14 +52,6 @@ public class Conversa {
 
 	public void setInterativa(boolean interativa) {
 		this.interativa = interativa;
-	}
-
-	public ArrayList<Usuario> getParticipantes() {
-		return participantes;
-	}
-
-	public void setParticipantes(ArrayList<Usuario> participantes) {
-		this.participantes = participantes;
 	}
 
 	public String getNome() {
@@ -79,31 +70,30 @@ public class Conversa {
 		this.dataCriação = dataCriação;
 	}
 
-	public TreeSet<Mensagem> getListaMensagens() {
+	public List<Mensagem> getListaMensagens() {
 		return listaMensagens;
 	}
 
-	public void setListaMensagens(TreeSet<Mensagem> listaMensagens) {
+	public void setListaMensagens(List<Mensagem> listaMensagens) {
 		this.listaMensagens = listaMensagens;
 	}
 
-	public TreeSet<Confirmacao> getListaConfirmacoes() {
+	public List<Confirmacao> getListaConfirmacoes() {
 		return listaConfirmacoes;
 	}
 
-	public void setListaConfirmacoes(TreeSet<Confirmacao> listaConfirmacoes) {
+	public void setListaConfirmacoes(List<Confirmacao> listaConfirmacoes) {
 		this.listaConfirmacoes = listaConfirmacoes;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 	@Override
 	public String toString() {
-		return "Conversa [id=" + id + ", interativa=" + interativa + ", participantes=" + participantes + ", nome="
-				+ nome + ", dataCriação=" + dataCriação + ", listaMensagens=" + listaMensagens + ", listaConfirmacoes="
-				+ listaConfirmacoes + "]";
+		return "Conversa [id=" + id + ", interativa=" + interativa + ", nome=" + nome + ", dataCriação=" + dataCriação
+				+ ", listaMensagens=" + listaMensagens + ", listaConfirmacoes=" + listaConfirmacoes + "]";
 	}
 
 }
