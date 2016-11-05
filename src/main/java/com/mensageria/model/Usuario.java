@@ -31,13 +31,13 @@ public class Usuario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar ultimoAcesso;
 
-	@OneToMany
+	@OneToMany(mappedBy = "proprietario")
 	private List<Dispositivo> listaDispositivos;
 
-	@OneToMany
+	@OneToMany(mappedBy = "autor")
 	private List<Mensagem> listaMensagens;
 
-	@OneToMany
+	@OneToMany(mappedBy = "usuario")
 	private List<Confirmacao> listaConfirmacoes;
 
 	public Usuario() {
@@ -114,8 +114,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", email=" + email + ", emailConfirmado=" + emailConfirmado + ", nome=" + nome
-				+ ", ultimoAcesso=" + ultimoAcesso + ", listaDispositivos=" + listaDispositivos + ", listaMensagens="
-				+ listaMensagens + ", listaConfirmacoes=" + listaConfirmacoes + "]";
+				+ ", ultimoAcesso=" + ultimoAcesso.getTime() + "]";
 	}
-
+	
 }

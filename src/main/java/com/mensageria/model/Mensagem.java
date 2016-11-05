@@ -27,7 +27,7 @@ public class Mensagem {
 	private Usuario autor;
 
 	@ManyToOne
-	private Conversa conversa;
+	private Conversa chat;
 
 	public Mensagem() {
 	}
@@ -37,7 +37,7 @@ public class Mensagem {
 		this.conteudo = conteudo;
 		this.dataEnvio = dataEnvio;
 		this.autor = autor;
-		this.conversa = conversa;
+		this.chat = conversa;
 	}
 
 	public String getConteudo() {
@@ -65,11 +65,11 @@ public class Mensagem {
 	}
 
 	public Conversa getConversa() {
-		return conversa;
+		return chat;
 	}
 
 	public void setConversa(Conversa conversa) {
-		this.conversa = conversa;
+		this.chat = conversa;
 	}
 
 	public Long getId() {
@@ -78,8 +78,8 @@ public class Mensagem {
 
 	@Override
 	public String toString() {
-		return "Mensagem [id=" + id + ", conteudo=" + conteudo + ", dataEnvio=" + dataEnvio + ", autor=" + autor
-				+ ", conversa=" + conversa + "]";
+		return "Mensagem [id=" + id + ", conteudo=" + conteudo + ", dataEnvio=" + dataEnvio.getTime() + ", autor=" + autor
+				+ ", conversa=" + chat + "]";
 	}
 
 }

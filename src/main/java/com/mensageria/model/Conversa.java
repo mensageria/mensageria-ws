@@ -26,16 +26,14 @@ public class Conversa {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCriação;
 
-	@OneToMany
+	@OneToMany(mappedBy = "chat")
 	private List<Mensagem> listaMensagens;
 
-	@OneToMany
+	@OneToMany(mappedBy = "conversa")
 	private List<Confirmacao> listaConfirmacoes;
 
 	public Conversa() {
 	}
-
-
 
 	public Conversa(boolean interativa, String nome, Calendar dataCriação) {
 		super();
@@ -43,8 +41,6 @@ public class Conversa {
 		this.nome = nome;
 		this.dataCriação = dataCriação;
 	}
-
-
 
 	public boolean isInterativa() {
 		return interativa;
@@ -92,8 +88,8 @@ public class Conversa {
 
 	@Override
 	public String toString() {
-		return "Conversa [id=" + id + ", interativa=" + interativa + ", nome=" + nome + ", dataCriação=" + dataCriação
-				+ ", listaMensagens=" + listaMensagens + ", listaConfirmacoes=" + listaConfirmacoes + "]";
+		return "Conversa [id=" + id + ", interativa=" + interativa + ", nome=" + nome + ", dataCriação=" + dataCriação.getTime()
+				+ "]";
 	}
 
 }
