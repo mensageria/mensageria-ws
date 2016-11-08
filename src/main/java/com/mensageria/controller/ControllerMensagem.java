@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +14,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mensageria.model.Usuario;
-import com.mensageria.model.Instituicao;
 import com.mensageria.model.Mensagem;
 
 @RestController
@@ -26,18 +23,18 @@ public class ControllerMensagem {
 	public ControllerMensagem(){
 
 	}
-		@CrossOrigin()
-		@RequestMapping(value = "/mensagens", method = RequestMethod.GET)
-		public ArrayList<Mensagem> getAllMensagens() {
-	
-			return listaMensagens;
-		}
-	
-		@CrossOrigin()
-		@RequestMapping(value = "/mensagem/{id}", method = RequestMethod.GET)
-		public Mensagem getMensagem(@PathVariable("id") int id) {
-			return listaMensagens.get(id);
-		}
+//		@CrossOrigin()
+//		@RequestMapping(value = "/mensagens", method = RequestMethod.GET)
+//		public ArrayList<Mensagem> getAllMensagens() {
+//	
+//			return listaMensagens;
+//		}
+//	
+//		@CrossOrigin()
+//		@RequestMapping(value = "/mensagem/{id}", method = RequestMethod.GET)
+//		public Mensagem getMensagem(@PathVariable("id") int id) {
+//			return listaMensagens.get(id);
+//		}
 		
 		@CrossOrigin()
 		@RequestMapping(value = "/post", method = RequestMethod.POST, produces="application/json", consumes="application/json")

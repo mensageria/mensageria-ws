@@ -2,13 +2,18 @@ package com.mensageria.controller;
 
 import java.util.ArrayList;
 
-import com.mensageria.interfaces.InterfaceEmpresa;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mensageria.interfaces.MetodosEmpresa;
 import com.mensageria.model.Conversa;
 import com.mensageria.model.Mensagem;
 import com.mensageria.model.Usuario;
 
-public class ControllerEmpresa implements InterfaceEmpresa{
-
+@RestController
+@RequestMapping("/empresa")
+public class ControllerEmpresa implements MetodosEmpresa {
+	
 	@Override
 	public Conversa EnviarMensagem(ArrayList<Usuario> listaIDs, Mensagem mensagem) {
 		// TODO Auto-generated method stub
@@ -38,6 +43,5 @@ public class ControllerEmpresa implements InterfaceEmpresa{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

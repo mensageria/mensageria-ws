@@ -64,12 +64,12 @@ public class Mensagem {
 		this.autor = autor;
 	}
 
-	public Conversa getConversa() {
+	public Conversa getChat() {
 		return chat;
 	}
 
-	public void setConversa(Conversa conversa) {
-		this.chat = conversa;
+	public void setChat(Conversa chat) {
+		this.chat = chat;
 	}
 
 	public Long getId() {

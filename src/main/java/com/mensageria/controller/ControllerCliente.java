@@ -1,36 +1,33 @@
 package com.mensageria.controller;
 
-import java.util.ArrayList;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mensageria.interfaces.MetodosCliente;
+import com.mensageria.model.Mensagem;
 import com.mensageria.model.Usuario;
 
 @RestController
-public class ControllerCliente {
-
-	ArrayList<Usuario> listaClientes = new ArrayList<Usuario>();
+public class ControllerCliente implements MetodosCliente {
 
 	public ControllerCliente() {
 		super();
 	}
 
-	@CrossOrigin()
-	@RequestMapping(value = "/clientes", method = RequestMethod.GET)
-	public ArrayList<Usuario> getAllUsuarios() {
+	@Override
+	public void ConfirmarMensagem(Usuario cliente) {
+		// TODO Auto-generated method stub
 
-		return listaClientes;
-	}
-	
-	@CrossOrigin()
-	@RequestMapping(value = "/cliente/{id}", method = RequestMethod.GET)
-	public Usuario getUsuario(@PathVariable("id") int id) {
-
-		return listaClientes.get(id);
 	}
 
+	@Override
+	public Mensagem ReceberMensagem(Usuario cliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean TemMensagem(Usuario cliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

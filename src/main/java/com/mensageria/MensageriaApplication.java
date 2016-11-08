@@ -15,11 +15,11 @@ import com.mensageria.model.Dispositivo;
 import com.mensageria.model.Instituicao;
 import com.mensageria.model.Mensagem;
 import com.mensageria.model.Usuario;
-import com.mensageria.model.repositorios.ConfirmacaoRepository;
-import com.mensageria.model.repositorios.ConversaRepository;
-import com.mensageria.model.repositorios.DispositivoRepository;
-import com.mensageria.model.repositorios.MensagensRepository;
-import com.mensageria.model.repositorios.UsuarioRepository;
+import com.mensageria.repositorios.ConfirmacaoRepository;
+import com.mensageria.repositorios.ConversaRepository;
+import com.mensageria.repositorios.DispositivoRepository;
+import com.mensageria.repositorios.MensagensRepository;
+import com.mensageria.repositorios.UsuarioRepository;
 
 @SpringBootApplication
 public class MensageriaApplication {
@@ -45,16 +45,16 @@ public class MensageriaApplication {
 			repositoryDispositivo.save(new Dispositivo("mac", "nome", "token", repositoryUsuario.findOne(1L)));
 			repositoryDispositivo.save(new Dispositivo("mac2", "nome2", "token", repositoryUsuario.findOne(1L)));
 
-			repositoryMensagem.save(
-					new Mensagem("conteudo", Calendar.getInstance(), repositoryUsuario.findOne(1L), repositoryConversa.findOne(1L)));
+			repositoryMensagem.save(new Mensagem("conteudo", Calendar.getInstance(), repositoryUsuario.findOne(1L),
+					repositoryConversa.findOne(1L)));
 			repositoryMensagem.save(new Mensagem("conteudo 2", Calendar.getInstance(), repositoryUsuario.findOne(1L),
 					repositoryConversa.findOne(2L)));
 			repositoryMensagem.save(new Mensagem("conteudo 3", Calendar.getInstance(), repositoryUsuario.findOne(2L),
 					repositoryConversa.findOne(1L)));
 
-			repositoryConfirmacao.save(new Confirmacao(false, false, repositoryUsuario.findOne(1L),
-					repositoryConversa.findOne(2L)));
-			
+			repositoryConfirmacao
+					.save(new Confirmacao(false, false, repositoryUsuario.findOne(1L), repositoryConversa.findOne(2L)));
+
 			log.info("Mensagems found with findAll():");
 			log.info("-------------------------------");
 			for (Mensagem mensagem : repositoryMensagem.findAll()) {
@@ -82,17 +82,17 @@ public class MensageriaApplication {
 				log.info(dispositivo.toString());
 			}
 			log.info("");
-			
+
 			log.info("Confirmacao found with findAll():");
 			log.info("-------------------------------");
 			for (Confirmacao confirmacao : repositoryConfirmacao.findAll()) {
 				log.info(confirmacao.toString());
 			}
 			log.info("");
-			
-			log.info("Mensagens found with findByAutor(Usuario autor):");
+
+			log.info("Mensagens found with findByAutorEmail(String email):");
 			log.info("-------------------------------");
-			for (Mensagem mensagem : repositoryMensagem.findByAutor(repositoryUsuario.findOne(2L))) {
+			for (Mensagem mensagem : repositoryMensagem.findByAutorEmail(repositoryUsuario.findOne(2L).getEmail())) {
 				log.info(mensagem.toString());
 			}
 			log.info("");
