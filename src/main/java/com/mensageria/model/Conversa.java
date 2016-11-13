@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "conversas")
 public class Conversa {
@@ -26,9 +28,11 @@ public class Conversa {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCriação;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "chat")
 	private List<Mensagem> listaMensagens;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "conversa")
 	private List<Confirmacao> listaConfirmacoes;
 

@@ -18,8 +18,8 @@ import com.mensageria.model.Usuario;
 import com.mensageria.repositorios.ConfirmacaoRepository;
 import com.mensageria.repositorios.ConversaRepository;
 import com.mensageria.repositorios.DispositivoRepository;
-import com.mensageria.repositorios.MensagensRepository;
 import com.mensageria.repositorios.UsuarioRepository;
+import com.mensageria.services.MensagemService;
 
 @SpringBootApplication
 public class MensageriaApplication {
@@ -32,7 +32,7 @@ public class MensageriaApplication {
 
 	// TODO remover testes
 	@Bean
-	public CommandLineRunner demo(MensagensRepository repositoryMensagem, UsuarioRepository repositoryUsuario,
+	public CommandLineRunner demo(MensagemService mensagemService, UsuarioRepository repositoryUsuario,
 			ConversaRepository repositoryConversa, DispositivoRepository repositoryDispositivo,
 			ConfirmacaoRepository repositoryConfirmacao) {
 		return (args) -> {
@@ -45,11 +45,11 @@ public class MensageriaApplication {
 			repositoryDispositivo.save(new Dispositivo("mac", "nome", "token", repositoryUsuario.findOne(1L)));
 			repositoryDispositivo.save(new Dispositivo("mac2", "nome2", "token", repositoryUsuario.findOne(1L)));
 
-			repositoryMensagem.save(new Mensagem("conteudo", Calendar.getInstance(), repositoryUsuario.findOne(1L),
+			mensagemService.save(new Mensagem("conteudo", Calendar.getInstance(), repositoryUsuario.findOne(1L),
 					repositoryConversa.findOne(1L)));
-			repositoryMensagem.save(new Mensagem("conteudo 2", Calendar.getInstance(), repositoryUsuario.findOne(1L),
+			mensagemService.save(new Mensagem("conteudo 2", Calendar.getInstance(), repositoryUsuario.findOne(1L),
 					repositoryConversa.findOne(2L)));
-			repositoryMensagem.save(new Mensagem("conteudo 3", Calendar.getInstance(), repositoryUsuario.findOne(2L),
+			mensagemService.save(new Mensagem("conteudo 3", Calendar.getInstance(), repositoryUsuario.findOne(2L),
 					repositoryConversa.findOne(1L)));
 
 			repositoryConfirmacao
@@ -57,7 +57,7 @@ public class MensageriaApplication {
 
 			log.info("Mensagems found with findAll():");
 			log.info("-------------------------------");
-			for (Mensagem mensagem : repositoryMensagem.findAll()) {
+			for (Mensagem mensagem : mensagemService.findAll()) {
 				log.info(mensagem.toString());
 			}
 			log.info("");
@@ -92,7 +92,7 @@ public class MensageriaApplication {
 
 			log.info("Mensagens found with findByAutorEmail(String email):");
 			log.info("-------------------------------");
-			for (Mensagem mensagem : repositoryMensagem.findByAutorEmail(repositoryUsuario.findOne(2L).getEmail())) {
+			for (Mensagem mensagem : mensagemService.findByAutorEmail(repositoryUsuario.findOne(2L).getEmail())) {
 				log.info(mensagem.toString());
 			}
 			log.info("");

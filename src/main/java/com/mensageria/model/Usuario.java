@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "usuarios")
 @Inheritance
@@ -33,12 +35,15 @@ public class Usuario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar ultimoAcesso;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "proprietario")
 	private List<Dispositivo> listaDispositivos;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "autor")
 	private List<Mensagem> listaMensagens;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Confirmacao> listaConfirmacoes;
 
