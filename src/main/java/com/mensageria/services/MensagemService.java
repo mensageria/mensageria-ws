@@ -9,27 +9,12 @@ import com.mensageria.model.Mensagem;
 import com.mensageria.repositorios.MensagemRepository;
 
 @Service
-public class MensagemService {
+public class MensagemService extends GenericService<Mensagem>{
+	
 	@Autowired
-	MensagemRepository mensagemRepository;
-
-	public void save(Mensagem mensagem) {
-		mensagemRepository.save(mensagem);
-	}
-
-	public List<Mensagem> findAll() {
-		return (List<Mensagem>) mensagemRepository.findAll();
-	}
-
-	public Mensagem findByID(Long id) {
-		return mensagemRepository.findOne(id);
-	}
-
-	public void delete(Mensagem mensagem) {
-		mensagemRepository.delete(mensagem);
-	}
+	MensagemRepository repository;
 
 	public List<Mensagem> findByAutorEmail(String email) {
-		return mensagemRepository.findByAutorEmail(email);
+		return repository.findByAutorEmail(email);
 	}
 }
