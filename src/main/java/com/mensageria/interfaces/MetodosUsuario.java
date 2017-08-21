@@ -12,6 +12,6 @@ public interface MetodosUsuario {
 
 	List<Mensagem> ReceberMensagem(Usuario usuario);
 
-	public Dispositivo registrar(String json);
+	Dispositivo registrar(Dispositivo dispositivo);
 
 }
