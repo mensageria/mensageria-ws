@@ -5,11 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "confirmacoes")
-public class Confirmacao {
+public class Recebe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,17 +18,21 @@ public class Confirmacao {
 	@ManyToOne
 	private Usuario usuario;
 	@ManyToOne
-	private Conversa conversa;
+	private Mensagem mensagem;
 
-	public Confirmacao() {
+	public Recebe() {
 	}
 
-	public Confirmacao(boolean vizualizado, boolean recebido, Usuario usuario, Conversa conversa) {
+	public Recebe(Long id, boolean vizualizado, boolean recebido,
+			Usuario usuario, Mensagem mensagem) {
+		this.id = id;
 		this.vizualizado = vizualizado;
 		this.recebido = recebido;
 		this.usuario = usuario;
-		this.conversa = conversa;
+		this.mensagem = mensagem;
 	}
+
+
 
 	public boolean isVizualizado() {
 		return vizualizado;
@@ -56,22 +58,20 @@ public class Confirmacao {
 		this.usuario = usuario;
 	}
 
-	public Conversa getConversa() {
-		return conversa;
-	}
 
-	public void setConversa(Conversa conversa) {
-		this.conversa = conversa;
-	}
 
 	public Long getId() {
 		return id;
 	}
 
-	@Override
-	public String toString() {
-		return "Confirmacao [id=" + id + ", vizualizado=" + vizualizado + ", recebido=" + recebido + ", usuario="
-				+ usuario + ", conversa=" + conversa + "]";
+	public Mensagem getMensagem() {
+		return mensagem;
 	}
+
+	public void setMensagem(Mensagem mensagem) {
+		this.mensagem = mensagem;
+	}
+
+
 
 }

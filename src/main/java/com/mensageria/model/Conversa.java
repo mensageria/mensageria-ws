@@ -31,10 +31,11 @@ public class Conversa {
 	@JsonIgnore
 	@OneToMany(mappedBy = "chat")
 	private List<Mensagem> listaMensagens;
-
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "conversa")
-	private List<Confirmacao> listaConfirmacoes;
+	private List<Participa> listaParticipacoes;
+	
 
 	public Conversa() {
 	}
@@ -78,13 +79,6 @@ public class Conversa {
 		this.listaMensagens = listaMensagens;
 	}
 
-	public List<Confirmacao> getListaConfirmacoes() {
-		return listaConfirmacoes;
-	}
-
-	public void setListaConfirmacoes(List<Confirmacao> listaConfirmacoes) {
-		this.listaConfirmacoes = listaConfirmacoes;
-	}
 
 	public Long getId() {
 		return id;
@@ -95,5 +89,14 @@ public class Conversa {
 		return "Conversa [id=" + id + ", interativa=" + interativa + ", nome=" + nome + ", dataCriação=" + dataCriação.getTime()
 				+ "]";
 	}
+
+	public List<Participa> getListaParticipacoes() {
+		return listaParticipacoes;
+	}
+
+	public void setListaParticipacoes(List<Participa> listaParticipacoes) {
+		this.listaParticipacoes = listaParticipacoes;
+	}
+	
 
 }

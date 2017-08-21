@@ -41,11 +41,11 @@ public class Usuario {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "autor")
-	private List<Mensagem> listaMensagens;
+	private List<Mensagem> listaMensagensEnviadas;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
-	private List<Confirmacao> listaConfirmacoes;
+	private List<Recebe> listaRecebidas;
 
 	public Usuario() {
 	}
@@ -99,19 +99,19 @@ public class Usuario {
 	}
 
 	public List<Mensagem> getListaMensagens() {
-		return listaMensagens;
+		return listaMensagensEnviadas;
 	}
 
 	public void setListaMensagens(List<Mensagem> listaMensagens) {
-		this.listaMensagens = listaMensagens;
+		this.listaMensagensEnviadas = listaMensagens;
 	}
 
-	public List<Confirmacao> getListaConfirmacoes() {
-		return listaConfirmacoes;
+	public List<Recebe> getListaConfirmacoes() {
+		return listaRecebidas;
 	}
 
-	public void setListaConfirmacoes(List<Confirmacao> listaConfirmacoes) {
-		this.listaConfirmacoes = listaConfirmacoes;
+	public void setListaConfirmacoes(List<Recebe> listaConfirmacoes) {
+		this.listaRecebidas = listaConfirmacoes;
 	}
 
 	public Long getId() {
