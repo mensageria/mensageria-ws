@@ -20,7 +20,7 @@ public abstract class GenericService<T> {
 		return (List<T>) repository.findAll();
 	}
 
-	public T findByID(Long id) {
+	public T findById(Long id) {
 		return (T) repository.findOne(id);
 	}
 

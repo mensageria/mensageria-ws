@@ -22,6 +22,7 @@ public class Mensagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String conteudo;
 
 	@Temporal(TemporalType.TIMESTAMP)

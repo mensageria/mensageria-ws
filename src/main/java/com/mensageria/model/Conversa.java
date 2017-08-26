@@ -26,7 +26,7 @@ public class Conversa {
 	private String nome;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar dataCriação;
+	private Calendar dataCriacao;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "chat")
@@ -40,11 +40,11 @@ public class Conversa {
 	public Conversa() {
 	}
 
-	public Conversa(boolean interativa, String nome, Calendar dataCriação) {
+	public Conversa(boolean interativa, String nome, Calendar dataCriacao) {
 		super();
 		this.interativa = interativa;
 		this.nome = nome;
-		this.dataCriação = dataCriação;
+		this.dataCriacao = dataCriacao;
 	}
 
 	public boolean isInterativa() {
@@ -63,12 +63,12 @@ public class Conversa {
 		this.nome = nome;
 	}
 
-	public Calendar getDataCriação() {
-		return dataCriação;
+	public Calendar getDataCriacao() {
+		return dataCriacao;
 	}
 
-	public void setDataCriação(Calendar dataCriação) {
-		this.dataCriação = dataCriação;
+	public void setDataCriacao(Calendar dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
 	public List<Mensagem> getListaMensagens() {
@@ -82,12 +82,6 @@ public class Conversa {
 
 	public Long getId() {
 		return id;
-	}
-
-	@Override
-	public String toString() {
-		return "Conversa [id=" + id + ", interativa=" + interativa + ", nome=" + nome + ", dataCriação=" + dataCriação.getTime()
-				+ "]";
 	}
 
 	public List<Participa> getListaParticipacoes() {
