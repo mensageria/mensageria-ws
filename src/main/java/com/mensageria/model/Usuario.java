@@ -98,20 +98,20 @@ public class Usuario {
 		this.listaDispositivos = listaDispositivos;
 	}
 
-	public List<Mensagem> getListaMensagens() {
+	public List<Mensagem> getListaMensagensEnviadas() {
 		return listaMensagensEnviadas;
 	}
 
-	public void setListaMensagens(List<Mensagem> listaMensagens) {
-		this.listaMensagensEnviadas = listaMensagens;
+	public void setListaMensagensEnviadas(List<Mensagem> listaMensagensEnviadas) {
+		this.listaMensagensEnviadas = listaMensagensEnviadas;
 	}
 
-	public List<Recebe> getListaConfirmacoes() {
+	public List<Recebe> getListaRecebidas() {
 		return listaRecebidas;
 	}
 
-	public void setListaConfirmacoes(List<Recebe> listaConfirmacoes) {
-		this.listaRecebidas = listaConfirmacoes;
+	public void setListaRecebidas(List<Recebe> listaRecebidas) {
+		this.listaRecebidas = listaRecebidas;
 	}
 
 	public Long getId() {

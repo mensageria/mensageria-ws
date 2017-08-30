@@ -31,21 +31,22 @@ public class MensageriaApplication {
 			return "banco ja foi populado";
 		}
 
-		serviceUsuario.save(new Usuario("email", true, "nome", Calendar.getInstance()));
-		serviceUsuario.save(new Instituicao("email 2", true, "nome 2", Calendar.getInstance(), "cnpj"));
+		serviceUsuario.save(new Usuario("joao@gmail.com", true, "joao", Calendar.getInstance()));
+		serviceUsuario.save(new Usuario("maria@gmail.com", true, "maria", Calendar.getInstance()));
+		serviceUsuario.save(new Instituicao("lex@hotmail.com", true, "Lex CORP", Calendar.getInstance(), "cnpj"));
 
 		serviceConversa.save(new Conversa(true, "conversa", Calendar.getInstance()));
 		serviceConversa.save(new Conversa(false, "conversa 2", Calendar.getInstance()));
 
-		serviceDispositivo.save(new Dispositivo("mac", "nome", "token", serviceUsuario.findById(1L)));
-		serviceDispositivo.save(new Dispositivo("mac2", "nome2", "token", serviceUsuario.findById(1L)));
+		serviceDispositivo.save(new Dispositivo("mac", "android", "token", serviceUsuario.findAll().get(0)));
+		serviceDispositivo.save(new Dispositivo("mac2", "ios", "token", serviceUsuario.findAll().get(0)));
 
-		serviceMensagem.save(new Mensagem("conteudo", Calendar.getInstance(), serviceUsuario.findById(1L),
-				serviceConversa.findById(1L)));
-		serviceMensagem.save(new Mensagem("conteudo 2", Calendar.getInstance(), serviceUsuario.findById(1L),
-				serviceConversa.findById(2L)));
-		serviceMensagem.save(new Mensagem("conteudo 3", Calendar.getInstance(), serviceUsuario.findById(2L),
-				serviceConversa.findById(1L)));
+		serviceMensagem.save(new Mensagem("mensagem importante", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+				serviceConversa.findAll().get(0)));
+		serviceMensagem.save(new Mensagem("nao havera aula", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+				serviceConversa.findAll().get(1)));
+		serviceMensagem.save(new Mensagem("Prova amanha", Calendar.getInstance(), serviceUsuario.findAll().get(1),
+				serviceConversa.findAll().get(0)));
 		
 		return "banco populado";
 	}

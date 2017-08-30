@@ -19,7 +19,7 @@ import com.mensageria.services.DispositivoService;
 import com.mensageria.services.UsuarioService;
 
 @RestController
-public class ControllerUsuario implements MetodosUsuario {
+public class UsuarioController implements MetodosUsuario {
 
 	@Autowired
 	DispositivoService dispositivoService;
@@ -27,7 +27,7 @@ public class ControllerUsuario implements MetodosUsuario {
 	@Autowired
 	UsuarioService usuarioService;
 
-	public ControllerUsuario() {
+	public UsuarioController() {
 		super();
 	}
 
