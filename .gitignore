@@ -33,3 +33,17 @@ overridedb.*
 .factorypath
 dump.rdb
 transaction-logs
+
+# Build Artifacts
+
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml
+
+# Eclipse Project Files
+
+.classpath
+.project
+.settings/
