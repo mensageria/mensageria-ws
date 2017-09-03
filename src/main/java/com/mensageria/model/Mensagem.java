@@ -28,10 +28,10 @@ public class Mensagem {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataEnvio;
 
-	@ManyToOne(optional=false)
+	@ManyToOne
 	private Usuario autor;
 
-	@ManyToOne(optional=false)
+	@ManyToOne
 	private Conversa chat;
 	
 	@JsonIgnore

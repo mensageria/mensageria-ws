@@ -12,7 +12,7 @@ import com.mensageria.model.Usuario;
 
 @RestController
 @RequestMapping("/empresa")
-public class EmpresaController implements MetodosEmpresa {
+public class ControllerEmpresa implements MetodosEmpresa {
 	
 	@Override
 	public Conversa EnviarMensagem(ArrayList<Usuario> listaIDs, Mensagem mensagem) {

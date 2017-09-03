@@ -79,6 +79,7 @@ public class Conversa {
 		this.listaMensagens = listaMensagens;
 	}
 
+
 	public Long getId() {
 		return id;
 	}
@@ -91,10 +92,5 @@ public class Conversa {
 		this.listaParticipacoes = listaParticipacoes;
 	}
 	
-	public Mensagem getUltimaMensagem(){
-		Mensagem mensagem = listaMensagens.get(0);
-		mensagem.setChat(null);
-		return mensagem;
-	}
 
 }
