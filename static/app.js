@@ -17,7 +17,7 @@ function connect() {
 	stompClient.connect({}, function(frame) {
 		setConnected(true);
 		console.log('Connected: ' + frame);
-		stompClient.send('/app/mensagens/conversa/' + $("#conversaId").val(), {});
+		getPreviousMessages()
 		stompClient.subscribe('/topic/mensagens/conversa/'+ $("#conversaId").val(), function(res) {
 			let mensagens = JSON.parse(res.body)
 			console.log('mensagem:',mensagens)
@@ -38,6 +38,10 @@ function disconnect() {
 	}
 	setConnected(false);
 	console.log("Disconnected");
+}
+
+function getPreviousMessages() {
+    $.get('/api/mensagens/conversa?chatId=' + $("#conversaId").val()).done(messages => messages.forEach(showGreeting));
 }
 
 function sendName() {
