@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mensageria.model.Mensagem;
@@ -18,6 +18,7 @@ import com.mensageria.services.MensagemService;
 
 @CrossOrigin()
 @RestController
+@RequestMapping("/api")
 public class MensagemController {
 
 	@Autowired
@@ -27,10 +28,9 @@ public class MensagemController {
 
 	}
 	
-	@MessageMapping("/mensagens/conversa/{chatId}")
-	@SendTo("/topic/mensagens/conversa/{chatId}")
-	public List<Mensagem> obterUltimasMensagens(@DestinationVariable Long chatId){
-		return mensagemService.findByChatIdWithLimit(chatId, new PageRequest(0, 10));
+	@RequestMapping("/mensagens/conversa")
+	public List<Mensagem> obterUltimasMensagens(@RequestParam Long chatId){
+		return mensagemService.findByChatIdWithLimit(chatId, new PageRequest(1, 10));
 	}
 
 	@MessageMapping("/enviar/mensagens/conversa/{chatId}")
