@@ -19,7 +19,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/mensageria").withSockJS();
+        registry.addEndpoint("/mensageria").setAllowedOrigins("*").withSockJS();
     }
 
 }
