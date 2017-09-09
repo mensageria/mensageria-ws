@@ -11,7 +11,7 @@ import com.mensageria.model.Mensagem;
 import com.mensageria.model.Usuario;
 
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping("/api")
 public class EmpresaController implements MetodosEmpresa {
 	
 	@Override

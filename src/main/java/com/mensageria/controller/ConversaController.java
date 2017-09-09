@@ -11,6 +11,7 @@ import com.mensageria.model.Conversa;
 import com.mensageria.services.ConversaService;
 
 @RestController
+@RequestMapping("/api")
 public class ConversaController {
 
 	@Autowired

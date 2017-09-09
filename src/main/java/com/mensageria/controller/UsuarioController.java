@@ -18,6 +18,7 @@ import com.mensageria.services.DispositivoService;
 import com.mensageria.services.UsuarioService;
 
 @RestController
+@RequestMapping("/api")
 public class UsuarioController implements MetodosUsuario {
 
 	@Autowired
