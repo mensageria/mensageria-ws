@@ -3,6 +3,10 @@ package com.mensageria.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +25,19 @@ public class MensagemController {
 
 	public MensagemController() {
 
+	}
+	
+	@MessageMapping("/mensagens/conversa/{chatId}")
+	@SendTo("/topic/mensagens/conversa/{chatId}")
+	public List<Mensagem> obterUltimasMensagens(@DestinationVariable Long chatId){
+		return mensagemService.findByChatIdWithLimit(chatId, new PageRequest(0, 10));
+	}
+
+	@MessageMapping("/enviar/mensagens/conversa/{chatId}")
+	@SendTo("/topic/mensagens/conversa/{chatId}")
+	public Mensagem greeting(Mensagem mensagem) throws Exception {
+		Mensagem novaMensagem = new Mensagem(mensagem.getConteudo(), mensagem.getDataEnvio(), mensagem.getAutor(), mensagem.getChat());
+		return mensagemService.save(novaMensagem);
 	}
 
 	@RequestMapping(value = "/mensagens", method = RequestMethod.GET)

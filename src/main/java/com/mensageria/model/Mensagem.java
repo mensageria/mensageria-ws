@@ -41,12 +41,16 @@ public class Mensagem {
 	public Mensagem() {
 	}
 
-	public Mensagem(String conteudo, Calendar dataEnvio, Usuario autor, Conversa conversa) {
+	public Mensagem(String conteudo, Calendar dataEnvio, Usuario autor, Conversa chat) {
 		super();
 		this.conteudo = conteudo;
 		this.dataEnvio = dataEnvio;
 		this.autor = autor;
-		this.chat = conversa;
+		this.chat = chat;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getConteudo() {
@@ -79,6 +83,14 @@ public class Mensagem {
 
 	public void setChat(Conversa chat) {
 		this.chat = chat;
+	}
+
+	public List<Recebe> getListaRecebidos() {
+		return listaRecebidos;
+	}
+
+	public void setListaRecebidos(List<Recebe> listaRecebidos) {
+		this.listaRecebidos = listaRecebidos;
 	}
 
 	public Long getId() {
