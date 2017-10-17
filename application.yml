@@ -1,7 +1,11 @@
 spring:
-  jpa.hibernate.ddl-auto=create
   datasource:
+    platform: postgres
     driverClassName: org.postgresql.Driver
     url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+        ddl-auto: create-drop
