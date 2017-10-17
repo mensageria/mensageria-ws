@@ -9,3 +9,5 @@ spring:
     database: POSTGRESQL
     hibernate:
         ddl-auto: create-drop
+  server:
+    port: ${PORT}
