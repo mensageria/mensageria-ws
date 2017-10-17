@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +18,8 @@ import com.mensageria.services.DispositivoService;
 import com.mensageria.services.UsuarioService;
 
 @RestController
-public class ControllerUsuario implements MetodosUsuario {
+@RequestMapping("/api")
+public class UsuarioController implements MetodosUsuario {
 
 	@Autowired
 	DispositivoService dispositivoService;

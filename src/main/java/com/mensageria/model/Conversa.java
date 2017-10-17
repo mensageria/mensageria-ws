@@ -31,11 +31,10 @@ public class Conversa {
 	@JsonIgnore
 	@OneToMany(mappedBy = "chat")
 	private List<Mensagem> listaMensagens;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "conversa")
 	private List<Participa> listaParticipacoes;
-	
 
 	public Conversa() {
 	}
@@ -45,6 +44,14 @@ public class Conversa {
 		this.interativa = interativa;
 		this.nome = nome;
 		this.dataCriacao = dataCriacao;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public boolean isInterativa() {
@@ -79,11 +86,6 @@ public class Conversa {
 		this.listaMensagens = listaMensagens;
 	}
 
-
-	public Long getId() {
-		return id;
-	}
-
 	public List<Participa> getListaParticipacoes() {
 		return listaParticipacoes;
 	}
@@ -91,6 +93,5 @@ public class Conversa {
 	public void setListaParticipacoes(List<Participa> listaParticipacoes) {
 		this.listaParticipacoes = listaParticipacoes;
 	}
-	
 
 }

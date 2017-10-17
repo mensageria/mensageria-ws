@@ -11,8 +11,8 @@ import com.mensageria.model.Mensagem;
 import com.mensageria.model.Usuario;
 
 @RestController
-@RequestMapping("/empresa")
-public class ControllerEmpresa implements MetodosEmpresa {
+@RequestMapping("/api")
+public class EmpresaController implements MetodosEmpresa {
 	
 	@Override
 	public Conversa EnviarMensagem(ArrayList<Usuario> listaIDs, Mensagem mensagem) {
