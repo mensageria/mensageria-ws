@@ -27,7 +27,7 @@ public class UsuarioController implements MetodosUsuario {
 	@Autowired
 	UsuarioService usuarioService;
 
-	public ControllerUsuario() {
+	public UsuarioController() {
 		super();
 	}
 

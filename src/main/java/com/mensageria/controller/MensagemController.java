@@ -25,7 +25,7 @@ public class MensagemController {
 	@Autowired
 	MensagemService mensagemService;
 
-	public ControllerMensagem() {
+	public MensagemController() {
 
 	}
 	
