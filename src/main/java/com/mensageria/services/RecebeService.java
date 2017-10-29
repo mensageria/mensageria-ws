@@ -11,4 +11,9 @@ public class RecebeService extends GenericService<Recebe> {
 
 	@Autowired
 	RecebeRepository repository;
+	
+	public Recebe receberMensagem(Recebe recebe){
+		recebe.setRecebido(true);
+		return repository.save(recebe);
+	}
 }

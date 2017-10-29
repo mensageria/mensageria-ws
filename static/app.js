@@ -26,7 +26,7 @@ function connect() {
 					showGreeting(mensagem);
 				})
 			}else{
-				showGreeting(mensagens);				
+				showGreeting(mensagens);
 			}
 		});
 	});
@@ -77,9 +77,20 @@ function sendName() {
 	stompClient.send('/app/enviar/mensagens/conversa/' + $("#conversaId").val(), {}, JSON.stringify(mensagem));
 }
 
+function sendReceive(mensagem){
+	
+	let recebe = {
+		mensagem:mensagem,
+		usuario:{id:1}
+	}
+	console.log("recebe",recebe)
+	stompClient.send('/app/receber/mensagens/conversa/' + $("#conversaId").val(), {}, JSON.stringify(recebe));
+}
+
 function showGreeting(message) {
 	let autor = message.autor
 	$("#greetings").append("<tr><td>" + autor.nome + ": " + message.conteudo + "</td></tr>");
+	sendReceive(message);
 }
 
 $(function() {
