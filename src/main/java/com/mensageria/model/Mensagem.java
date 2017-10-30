@@ -13,8 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "mensagens")
 public class Mensagem {
@@ -34,7 +32,6 @@ public class Mensagem {
 	@ManyToOne
 	private Conversa chat;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "mensagem")
 	private List<Recebe> listaRecebidos;
 
