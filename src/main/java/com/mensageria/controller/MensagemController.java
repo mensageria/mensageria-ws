@@ -58,7 +58,7 @@ public class MensagemController {
 	
 	@MessageMapping("/visualizar/mensagens/conversa/{chatId}")
 	@SendTo("/topic/mensagens/conversa/{chatId}")
-	public Recebe confirmarVisualização(Recebe recebe) throws Exception {
+	public Recebe confirmarVisualizacao(Recebe recebe) throws Exception {
 		return recebeService.visualizarMensagem(recebe);
 	}
 
