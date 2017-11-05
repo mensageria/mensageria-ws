@@ -25,6 +25,7 @@ public class Recebe implements Serializable {
 	@JoinColumn(insertable = false, updatable = false)
 	private Usuario usuario;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(insertable = false, updatable = false)
 	private Mensagem mensagem;
