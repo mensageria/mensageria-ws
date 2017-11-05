@@ -37,15 +37,15 @@ public class MensageriaApplication {
 		serviceConversa.save(new Conversa(true, "conversa", Calendar.getInstance()));
 		serviceConversa.save(new Conversa(false, "conversa 2", Calendar.getInstance()));
 
-		serviceDispositivo.save(new Dispositivo("mac", "nome", "token", serviceUsuario.findById(1L)));
-		serviceDispositivo.save(new Dispositivo("mac2", "nome2", "token", serviceUsuario.findById(1L)));
+		serviceDispositivo.save(new Dispositivo("mac", "nome", "token", serviceUsuario.findAll().get(0)));
+		serviceDispositivo.save(new Dispositivo("mac2", "nome2", "token", serviceUsuario.findAll().get(0)));
 
-		serviceMensagem.save(new Mensagem("conteudo", Calendar.getInstance(), serviceUsuario.findById(1L),
-				serviceConversa.findById(1L)));
-		serviceMensagem.save(new Mensagem("conteudo 2", Calendar.getInstance(), serviceUsuario.findById(1L),
-				serviceConversa.findById(2L)));
-		serviceMensagem.save(new Mensagem("conteudo 3", Calendar.getInstance(), serviceUsuario.findById(2L),
-				serviceConversa.findById(1L)));
+		serviceMensagem.save(new Mensagem("conteudo", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+				serviceConversa.findAll().get(0)));
+		serviceMensagem.save(new Mensagem("conteudo 2", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+				serviceConversa.findAll().get(1)));
+		serviceMensagem.save(new Mensagem("conteudo 3", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+				serviceConversa.findAll().get(0)));
 		
 		return "banco populado";
 	}
