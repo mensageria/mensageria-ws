@@ -31,7 +31,7 @@ public class MensagemController {
 	
 	@RequestMapping("/mensagens/conversa")
 	public List<Mensagem> obterUltimasMensagens(@RequestParam Long chatId){
-		return mensagemService.findByChatIdWithLimit(chatId, new PageRequest(1, 10));
+		return mensagemService.findByChatIdWithLimit(chatId, new PageRequest(0, 10));
 	}
 	
 	@RequestMapping(value = "/mensagens", method = RequestMethod.GET)

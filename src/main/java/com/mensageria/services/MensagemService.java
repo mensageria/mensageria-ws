@@ -24,6 +24,6 @@ public class MensagemService extends GenericService<Mensagem> {
 	}
 
 	public List<Mensagem> findByChatIdWithLimit(Long chatId, Pageable pageable) {
-		return repository.findTop20ByChatIdOrderById(chatId, pageable);
+		return repository.findTo20ByChatIdOrderById(chatId, pageable);
 	}
 }
