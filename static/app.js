@@ -17,8 +17,19 @@ function connect() {
 	stompClient.connect({}, function(frame) {
 		setConnected(true);
 		console.log('Connected: ' + frame);
-		getPreviousMessages()
+		getPreviousMessages();
 		stompClient.subscribe('/topic/mensagens/conversa/'+ $("#conversaId").val(), function(res) {
+			let mensagens = JSON.parse(res.body)
+			console.log('mensagem:',mensagens)
+			if(mensagens.length){
+				mensagens.forEach(mensagem => {
+					showGreeting(mensagem);
+				})
+			}else{
+				showGreeting(mensagens);
+			}
+		});
+		stompClient.subscribe('/topic/mensagens/conversa/'+ 6, function(res) {
 			let mensagens = JSON.parse(res.body)
 			console.log('mensagem:',mensagens)
 			if(mensagens.length){
