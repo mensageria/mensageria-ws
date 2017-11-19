@@ -91,8 +91,10 @@ function sendName() {
 function sendReceive(mensagem){
 	
 	let recebe = {
-		mensagem:mensagem,
-		usuario:{id:1}
+		id:{
+			mensagem:mensagem.id,
+			usuario:1
+		}
 	}
 	console.log("recebe",recebe)
 	stompClient.send('/app/receber/mensagens/conversa/' + $("#conversaId").val(), {}, JSON.stringify(recebe));
