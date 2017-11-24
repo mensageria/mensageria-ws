@@ -1,5 +1,7 @@
 package com.mensageria.model;
 
+import java.util.Calendar;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +16,9 @@ public class Dispositivo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String mac;
 	private String nome;
-	private String tokenFirebase;
+	private String pushToken;
+	private Calendar dataRegistro;
 	
 	@ManyToOne
 	private Usuario proprietario;
@@ -24,20 +26,15 @@ public class Dispositivo {
 	public Dispositivo() {
 	}
 
-	public Dispositivo(String mac, String nome, String tokenFirebase, Usuario proprietario) {
-		this.mac = mac;
+	public Dispositivo(String nome, String pushToken, Calendar dataRegistro, Usuario proprietario) {
+		super();
 		this.nome = nome;
-		this.tokenFirebase = tokenFirebase;
+		this.pushToken = pushToken;
+		this.dataRegistro = dataRegistro;
 		this.proprietario = proprietario;
 	}
 
-	public String getMac() {
-		return mac;
-	}
 
-	public void setMac(String mac) {
-		this.mac = mac;
-	}
 
 	public String getNome() {
 		return nome;
@@ -45,14 +42,6 @@ public class Dispositivo {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getTokenFirebase() {
-		return tokenFirebase;
-	}
-
-	public void setTokenFirebase(String tokenFirebase) {
-		this.tokenFirebase = tokenFirebase;
 	}
 
 	public Usuario getProprietario() {
@@ -67,11 +56,22 @@ public class Dispositivo {
 		return id;
 	}
 
-	@Override
-	public String toString() {
-		return "Dispositivo [id=" + id + ", mac=" + mac + ", nome=" + nome + ", tokenFirebase=" + tokenFirebase
-				+ ", proprietario=" + proprietario + "]";
+	public String getPushToken() {
+		return pushToken;
 	}
+
+	public void setPushToken(String pushToken) {
+		this.pushToken = pushToken;
+	}
+
+	public Calendar getDataRegistro() {
+		return dataRegistro;
+	}
+
+	public void setDataRegistro(Calendar dataRegistro) {
+		this.dataRegistro = dataRegistro;
+	}
+	
 	
 	
 }

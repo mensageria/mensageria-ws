@@ -11,4 +11,8 @@ public class DispositivoService extends GenericService<Dispositivo> {
 
 	@Autowired
 	DispositivoRepository repository;
+
+	public String gerarToken() {
+		return "token";
+	}
 }

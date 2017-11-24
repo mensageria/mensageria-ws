@@ -46,8 +46,14 @@ public class UsuarioController implements MetodosUsuario {
 	@ResponseBody
 	@Override
 	public Dispositivo registrar(@RequestBody Dispositivo dispositivo) {
-		dispositivo.getProprietario().setUltimoAcesso(Calendar.getInstance());
+		dispositivo.setPushToken(dispositivoService.gerarToken());
+		
+		Calendar dataAtual = Calendar.getInstance();
+		dispositivo.setDataRegistro(dataAtual);
+		dispositivo.getProprietario().setUltimoAcesso(dataAtual);
+	
 		dispositivo.setProprietario(this.usuarioService.save(dispositivo.getProprietario()));
+		
 		return this.dispositivoService.save(dispositivo);
 	}
 

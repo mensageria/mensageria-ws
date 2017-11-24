@@ -33,14 +33,15 @@ public class MensageriaApplication {
 			return "banco ja foi populado";
 		}
 
-		serviceUsuario.save(new Usuario("allison@g.com", true, "Allison", Calendar.getInstance()));
-		serviceUsuario.save(new Usuario("renan@g.com", true, "Renan", Calendar.getInstance()));
-		serviceUsuario.save(new Usuario("gabriel@g.com", true, "Gabriel", Calendar.getInstance()));
-		serviceUsuario.save(new Instituicao("email 2", true, "nome 2", Calendar.getInstance(), "cnpj"));
+		Calendar data = Calendar.getInstance();
+		serviceUsuario.save(new Usuario("allison@g.com", true, "Allison", data));
+		serviceUsuario.save(new Usuario("renan@g.com", true, "Renan", data));
+		serviceUsuario.save(new Usuario("gabriel@g.com", true, "Gabriel", data));
+		serviceUsuario.save(new Instituicao("email 2", true, "nome 2", data, "cnpj"));
 
-		serviceConversa.save(new Conversa(true, "conversa 1", Calendar.getInstance()));
-		serviceConversa.save(new Conversa(true, "conversa 2", Calendar.getInstance()));
-		serviceConversa.save(new Conversa(false, "conversa 3", Calendar.getInstance()));
+		serviceConversa.save(new Conversa(true, "conversa 1", data));
+		serviceConversa.save(new Conversa(true, "conversa 2", data));
+		serviceConversa.save(new Conversa(false, "conversa 3", data));
 		
 		serviceParticipa.save(new Participa(serviceUsuario.findAll().get(0), serviceConversa.findAll().get(0)));
 		serviceParticipa.save(new Participa(serviceUsuario.findAll().get(1), serviceConversa.findAll().get(0)));
@@ -48,18 +49,18 @@ public class MensageriaApplication {
 		serviceParticipa.save(new Participa(serviceUsuario.findAll().get(0), serviceConversa.findAll().get(1)));
 		serviceParticipa.save(new Participa(serviceUsuario.findAll().get(2), serviceConversa.findAll().get(1)));
 		
-		serviceDispositivo.save(new Dispositivo("mac", "nome", "token", serviceUsuario.findAll().get(0)));
-		serviceDispositivo.save(new Dispositivo("mac2", "nome2", "token", serviceUsuario.findAll().get(0)));
+		serviceDispositivo.save(new Dispositivo("nome", "token",data, serviceUsuario.findAll().get(0)));
+		serviceDispositivo.save(new Dispositivo("nome2", "token",data, serviceUsuario.findAll().get(0)));
 
-		serviceMensagem.save(new Mensagem("conteudo", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+		serviceMensagem.save(new Mensagem("conteudo", data, serviceUsuario.findAll().get(0),
 				serviceConversa.findAll().get(0)));
-		serviceMensagem.save(new Mensagem("conteudo 2", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+		serviceMensagem.save(new Mensagem("conteudo 2", data, serviceUsuario.findAll().get(0),
 				serviceConversa.findAll().get(2)));
-		serviceMensagem.save(new Mensagem("conteudo 3", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+		serviceMensagem.save(new Mensagem("conteudo 3", data, serviceUsuario.findAll().get(0),
 				serviceConversa.findAll().get(0)));
-		serviceMensagem.save(new Mensagem("Olá, Gabriel!", Calendar.getInstance(), serviceUsuario.findAll().get(0),
+		serviceMensagem.save(new Mensagem("Olá, Gabriel!", data, serviceUsuario.findAll().get(0),
 				serviceConversa.findAll().get(1)));
-		serviceMensagem.save(new Mensagem("Oi, Allison!", Calendar.getInstance(), serviceUsuario.findAll().get(2),
+		serviceMensagem.save(new Mensagem("Oi, Allison!", data, serviceUsuario.findAll().get(2),
 				serviceConversa.findAll().get(1)));
 		
 		return "banco populado";

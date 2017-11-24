@@ -36,4 +36,37 @@ public class RecebePk implements Serializable {
 		this.usuario = usuario;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((mensagem == null) ? 0 : mensagem.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RecebePk other = (RecebePk) obj;
+		if (mensagem == null) {
+			if (other.mensagem != null)
+				return false;
+		} else if (!mensagem.equals(other.mensagem))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
+	}
+	
+	
+
 }
