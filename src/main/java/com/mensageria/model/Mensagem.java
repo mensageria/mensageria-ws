@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,10 +30,10 @@ public class Mensagem {
 	@ManyToOne
 	private Usuario autor;
 
-	@ManyToOne
+	@ManyToOne()
 	private Conversa chat;
 	
-	@OneToMany(mappedBy = "mensagem")
+	@OneToMany(mappedBy = "mensagem",fetch=FetchType.EAGER)
 	private List<Recebe> listaRecebidos;
 
 	public Mensagem() {

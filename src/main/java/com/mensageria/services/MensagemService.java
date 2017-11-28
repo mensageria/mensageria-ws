@@ -1,5 +1,6 @@
 package com.mensageria.services;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,12 @@ public class MensagemService extends GenericService<Mensagem> {
 	public List<Mensagem> findByChatIdWithLimit(Long chatId, Pageable pageable) {
 		return repository.findTo20ByChatIdOrderById(chatId, pageable);
 	}
+	
+	@Override
+	public Mensagem save(Mensagem mensagem) {
+		mensagem.setDataEnvio(Calendar.getInstance());
+		mensagem = repository.save(mensagem);
+		return repository.findOne(mensagem.getId());
+	}
+	
 }
