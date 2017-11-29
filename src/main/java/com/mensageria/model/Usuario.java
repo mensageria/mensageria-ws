@@ -4,13 +4,10 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,20 +17,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuarios")
-@Inheritance
-@DiscriminatorColumn(name = "tipo_usuario")
-@DiscriminatorValue("U")
-
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(unique=true)
+	@Column(unique = true)
 	private String email;
 	private boolean emailConfirmado;
 	private String nome;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar ultimoAcesso;
+
+	private int prioridade;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "proprietario")
@@ -50,12 +45,12 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(String email, boolean emailConfirmado, String nome, Calendar ultimoAcesso) {
-		super();
+	public Usuario(String email, boolean emailConfirmado, String nome, Calendar ultimoAcesso, int prioridade) {
 		this.email = email;
 		this.emailConfirmado = emailConfirmado;
 		this.nome = nome;
 		this.ultimoAcesso = ultimoAcesso;
+		this.prioridade = prioridade;
 	}
 
 	public String getEmail() {
@@ -94,10 +89,18 @@ public class Usuario {
 		return listaDispositivos;
 	}
 
+	public int getPrioridade() {
+		return prioridade;
+	}
+
+	public void setPrioridade(int prioridade) {
+		this.prioridade = prioridade;
+	}
+
 	public void setListaDispositivos(List<Dispositivo> listaDispositivos) {
 		this.listaDispositivos = listaDispositivos;
 	}
-	
+
 	public List<Mensagem> getListaMensagensEnviadas() {
 		return listaMensagensEnviadas;
 	}
@@ -123,5 +126,5 @@ public class Usuario {
 		return "Usuario [id=" + id + ", email=" + email + ", emailConfirmado=" + emailConfirmado + ", nome=" + nome
 				+ ", ultimoAcesso=" + ultimoAcesso.getTime() + "]";
 	}
-	
+
 }

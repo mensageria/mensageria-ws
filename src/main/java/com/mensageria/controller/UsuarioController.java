@@ -51,6 +51,7 @@ public class UsuarioController implements MetodosUsuario {
 		Calendar dataAtual = Calendar.getInstance();
 		dispositivo.setDataRegistro(dataAtual);
 		dispositivo.getProprietario().setUltimoAcesso(dataAtual);
+		dispositivo.getProprietario().setPrioridade(0);
 	
 		dispositivo.setProprietario(this.usuarioService.save(dispositivo.getProprietario()));
 		

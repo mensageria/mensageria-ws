@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 
 import com.mensageria.model.Conversa;
 import com.mensageria.model.Dispositivo;
-import com.mensageria.model.Instituicao;
 import com.mensageria.model.Mensagem;
 import com.mensageria.model.Participa;
 import com.mensageria.model.Usuario;
@@ -34,10 +33,10 @@ public class MensageriaApplication {
 		}
 
 		Calendar data = Calendar.getInstance();
-		serviceUsuario.save(new Usuario("allison@g.com", true, "Allison", data));
-		serviceUsuario.save(new Usuario("renan@g.com", true, "Renan", data));
-		serviceUsuario.save(new Usuario("gabriel@g.com", true, "Gabriel", data));
-		serviceUsuario.save(new Instituicao("email 2", true, "nome 2", data, "cnpj"));
+		serviceUsuario.save(new Usuario("allison@g.com", true, "Allison", data,0));
+		serviceUsuario.save(new Usuario("renan@g.com", true, "Renan", data,0));
+		serviceUsuario.save(new Usuario("gabriel@g.com", true, "Gabriel", data,0));
+		serviceUsuario.save(new Usuario("professor@g.com", true, "professor", data,1));
 
 		serviceConversa.save(new Conversa(true, "conversa 1", data));
 		serviceConversa.save(new Conversa(true, "conversa 2", data));
@@ -52,7 +51,7 @@ public class MensageriaApplication {
 		serviceDispositivo.save(new Dispositivo("nome", "token",data, serviceUsuario.findAll().get(0)));
 		serviceDispositivo.save(new Dispositivo("nome2", "token",data, serviceUsuario.findAll().get(0)));
 
-		serviceMensagem.save(new Mensagem("conteudo", data, serviceUsuario.findAll().get(0),
+		serviceMensagem.save(new Mensagem("conteudo", data, serviceUsuario.findAll().get(3),
 				serviceConversa.findAll().get(0)));
 		serviceMensagem.save(new Mensagem("conteudo 2", data, serviceUsuario.findAll().get(0),
 				serviceConversa.findAll().get(2)));
