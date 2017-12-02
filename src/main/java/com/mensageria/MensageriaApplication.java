@@ -36,7 +36,7 @@ public class MensageriaApplication {
 		serviceUsuario.save(new Usuario("allison@g.com", true, "Allison", data,0));
 		serviceUsuario.save(new Usuario("renan@g.com", true, "Renan", data,0));
 		serviceUsuario.save(new Usuario("gabriel@g.com", true, "Gabriel", data,0));
-		serviceUsuario.save(new Usuario("professor@g.com", true, "professor", data,1));
+		serviceUsuario.save(new Usuario("luiz@g.com", true, "Luiz Fernando", data,1));
 
 		serviceConversa.save(new Conversa(true, "conversa 1", data));
 		serviceConversa.save(new Conversa(true, "conversa 2", data));
