@@ -2,6 +2,7 @@ package com.mensageria.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +13,7 @@ import com.mensageria.model.Usuario;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins="*")
 public class EmpresaController implements MetodosEmpresa {
 	
 	@Override

@@ -18,9 +18,9 @@ import com.mensageria.model.Recebe;
 import com.mensageria.services.MensagemService;
 import com.mensageria.services.RecebeService;
 
-@CrossOrigin()
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins="*")
 public class MensagemController {
 
 	@Autowired
