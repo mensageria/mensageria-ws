@@ -63,8 +63,8 @@ public class UsuarioController implements MetodosUsuario {
 
 	// TODO mudar metodo de teste
 	@RequestMapping(value = "/usuarios", method = RequestMethod.GET)
-	public List<Dispositivo> getAllDispositivos() {
-		return this.dispositivoService.findAll();
+	public List<Usuario> getAllDispositivos() {
+		return usuarioService.findAll();
 	}
 
 	@RequestMapping(value = "/usuarios", method = RequestMethod.POST)

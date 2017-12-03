@@ -12,8 +12,10 @@ public class Participa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@ManyToOne
 	private Usuario usuario;
+	
 	@ManyToOne
 	private Conversa conversa;
 	
