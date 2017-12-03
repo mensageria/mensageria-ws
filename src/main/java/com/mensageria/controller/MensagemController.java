@@ -47,8 +47,7 @@ public class MensagemController {
 	@MessageMapping("/enviar/mensagens/conversa/{chatId}")
 	@SendTo("/topic/mensagens/conversa/{chatId}")
 	public Mensagem enviar(Mensagem mensagem) throws Exception {
-		Mensagem mensagemSalva = mensagemService.save(mensagem);
-		return mensagemSalva;
+		return mensagemService.save(mensagem);
 	}
 	
 	@MessageMapping("/receber/mensagens/conversa/{chatId}")
