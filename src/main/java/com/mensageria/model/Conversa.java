@@ -24,6 +24,9 @@ public class Conversa {
 
 	private boolean interativa;
 	private String nome;
+	
+	private int qtdPessoas;
+	private int qtdMensagens;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCriacao;
@@ -38,7 +41,7 @@ public class Conversa {
 
 	public Conversa() {
 	}
-
+	
 	public Conversa(boolean interativa, String nome, Calendar dataCriacao) {
 		super();
 		this.interativa = interativa;
@@ -52,6 +55,14 @@ public class Conversa {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public int getQtdPessoas() {
+		return qtdPessoas;
+	}
+
+	public void setQtdPessoas(int qtdPessoas) {
+		this.qtdPessoas = qtdPessoas;
 	}
 
 	public boolean isInterativa() {
@@ -92,6 +103,14 @@ public class Conversa {
 
 	public void setListaParticipacoes(List<Participa> listaParticipacoes) {
 		this.listaParticipacoes = listaParticipacoes;
+	}
+
+	public int getQtdMensagens() {
+		return qtdMensagens;
+	}
+
+	public void setQtdMensagens(int qtdMensagens) {
+		this.qtdMensagens = qtdMensagens;
 	}
 
 }
