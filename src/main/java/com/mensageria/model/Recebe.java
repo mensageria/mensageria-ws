@@ -17,7 +17,7 @@ public class Recebe implements Serializable {
 	@EmbeddedId
 	private RecebePk id;
 
-	private boolean vizualizado;
+	private boolean visualizado;
 	private boolean recebido;
 
 	@JsonIgnore
@@ -33,19 +33,21 @@ public class Recebe implements Serializable {
 	public Recebe() {
 	}
 
-	public Recebe(boolean vizualizado, boolean recebido, Usuario usuario, Mensagem mensagem) {
-		this.vizualizado = vizualizado;
+	public Recebe(boolean visualizado, boolean recebido, Usuario usuario, Mensagem mensagem) {
+		this.visualizado = visualizado;
 		this.recebido = recebido;
 		this.usuario = usuario;
 		this.mensagem = mensagem;
 	}
 
-	public boolean isVizualizado() {
-		return vizualizado;
+
+
+	public boolean isVisualizado() {
+		return visualizado;
 	}
 
-	public void setVizualizado(boolean vizualizado) {
-		this.vizualizado = vizualizado;
+	public void setVisualizado(boolean visualizado) {
+		this.visualizado = visualizado;
 	}
 
 	public boolean isRecebido() {
