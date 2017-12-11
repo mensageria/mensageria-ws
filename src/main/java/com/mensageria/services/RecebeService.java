@@ -18,7 +18,7 @@ public class RecebeService extends GenericService<Recebe> {
 	}
 
 	public Recebe visualizarMensagem(Recebe recebe) {
-		recebe.setVizualizado(true);
+		recebe.setVisualizado(true);
 		recebe.setRecebido(true);
 		return repository.save(recebe);
 	}
