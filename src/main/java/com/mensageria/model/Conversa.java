@@ -55,6 +55,9 @@ public class Conversa {
 	}
 	
 	public int getQtdPessoas() {
+		if(this.listaParticipacoes == null){
+			return 0;
+		}
 		return this.listaParticipacoes.size();
 	}
 
@@ -99,6 +102,9 @@ public class Conversa {
 	}
 
 	public int getQtdMensagens() {
+		if(this.listaMensagens == null){
+			return 0;
+		}
 		return this.listaMensagens.size();
 	}
 
