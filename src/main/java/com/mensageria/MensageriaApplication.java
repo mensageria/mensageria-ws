@@ -38,9 +38,9 @@ public class MensageriaApplication {
 		serviceUsuario.save(new Usuario("gabriel@g.com", true, "Gabriel Lima", data,0));
 		serviceUsuario.save(new Usuario("luiz@g.com", true, "Luiz Fernando", data,1));
 
-		serviceConversa.save(new Conversa(true, "conversa 1", data));
-		serviceConversa.save(new Conversa(true, "conversa 2", data));
-		serviceConversa.save(new Conversa(false, "conversa 3", data));
+		serviceConversa.save(new Conversa(true, "Turma EIN375-01 / 1", data));
+		serviceConversa.save(new Conversa(true, "Turma EIN174-01 / 1", data));
+		serviceConversa.save(new Conversa(false, "Turma EIN357-01 / 1", data));
 		
 		serviceParticipa.save(new Participa(serviceUsuario.findAll().get(0), serviceConversa.findAll().get(0)));
 		serviceParticipa.save(new Participa(serviceUsuario.findAll().get(1), serviceConversa.findAll().get(0)));
