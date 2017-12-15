@@ -36,9 +36,12 @@ public class Conversa {
 	@OneToMany(mappedBy = "conversa")
 	private List<Participa> listaParticipacoes;
 
+	private int qtdPessoas;
+	private int qtdMensagens;
+
 	public Conversa() {
 	}
-	
+
 	public Conversa(boolean interativa, String nome, Calendar dataCriacao) {
 		super();
 		this.interativa = interativa;
@@ -52,13 +55,6 @@ public class Conversa {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public int getQtdPessoas() {
-		if(this.listaParticipacoes == null){
-			return 0;
-		}
-		return this.listaParticipacoes.size();
 	}
 
 	public boolean isInterativa() {
@@ -101,11 +97,20 @@ public class Conversa {
 		this.listaParticipacoes = listaParticipacoes;
 	}
 
+	public int getQtdPessoas() {
+		return qtdPessoas;
+	}
+
+	public void setQtdPessoas(int qtdPessoas) {
+		this.qtdPessoas = qtdPessoas;
+	}
+
 	public int getQtdMensagens() {
-		if(this.listaMensagens == null){
-			return 0;
-		}
-		return this.listaMensagens.size();
+		return qtdMensagens;
+	}
+
+	public void setQtdMensagens(int qtdMensagens) {
+		this.qtdMensagens = qtdMensagens;
 	}
 
 }

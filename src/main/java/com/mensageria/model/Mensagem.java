@@ -30,7 +30,7 @@ public class Mensagem {
 	@ManyToOne
 	private Usuario autor;
 
-	@ManyToOne()
+	@ManyToOne
 	private Conversa chat;
 	
 	@OneToMany(mappedBy = "mensagem",fetch=FetchType.EAGER)
